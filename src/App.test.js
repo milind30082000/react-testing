@@ -13,8 +13,10 @@ describe('Tests for Todo App',()=>{
       const text = screen.getByTestId("input");
       const create = screen.getByTestId("createButton");
       userEvent.click(create);
-      expect(counter).toHaveTextContent("1 todos");
-      const remove = screen.getAllByTestId("deleteButton");
+      expect(counter).toHaveTextContent("1 todos");      
+      const remove = screen.getByTestId("deleteButton");// as we will have multiple delete buttons
+      userEvent.click(remove);
+      expect(counter).toHaveTextContent("0 todos");
       
       })
 })
