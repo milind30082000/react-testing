@@ -14,7 +14,7 @@ describe('Tests for Todo App',()=>{
       const create = screen.getByTestId("createButton");
       userEvent.click(create);
       expect(counter).toHaveTextContent("1 todos");      
-      const remove = screen.getByTestId("deleteButton");// as we will have multiple delete buttons
+      const remove = screen.getByTestId("deleteButton");// as we need to add first then delete is possible.
       userEvent.click(remove);
       expect(counter).toHaveTextContent("0 todos");
       
