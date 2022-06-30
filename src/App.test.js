@@ -17,7 +17,7 @@ describe('Tests for Integeration testing',()=>{
 
       await screen.findByText(/loading/i);
       //expect(screen.getByText("ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae")).toBeInTheDocument();
-
+      expect(screen.getByText("Loading....")).toBeInTheDocument();
     
     });
 })
