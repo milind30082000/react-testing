@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 import Home from './Home';
@@ -15,9 +15,11 @@ describe('Tests for Integeration testing',()=>{
       const button = screen.getByText(/submit/i);
       userEvent.click(button);
 
-      await screen.findByText(/loading/i);
+      //await screen.findByText(/loading/i);
       //expect(screen.getByText("ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae")).toBeInTheDocument();
       expect(screen.getByText("Loading....")).toBeInTheDocument();
-    
+      await waitFor(() => expect(screen.queryByText("Loading....")).not.toBeInTheDocument());
+      expect(screen.getByText("ut aspernatur corporis harum nihil quis provident sequi mollitia nobis aliquid molestiae perspiciatis et ea nemo ab reprehenderit accusantium quas voluptate dolores velit et doloremque molestiae")).toBeInTheDocument();
+      // TODO mock server worker
     });
 })

@@ -28,6 +28,7 @@ export default function Post() {
             {
                 loading ? <p>Loading....</p> : 
                 <>
+                    <h3>{data.title}</h3>
                     <p>{data.body}</p> 
                 </>
             }
